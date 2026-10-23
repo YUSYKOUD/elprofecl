@@ -97,6 +97,12 @@ body:before{content:"";position:fixed;inset:0;background:radial-gradient(circle 
 @media(max-width:1050px){.home-leagues{grid-template-columns:1fr}.home-crest-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:650px){.home-crest-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.home-club-card{min-height:86px}.home-league-panel{padding:14px}.club-modal-stats{grid-template-columns:1fr}}
 
+
+/* v12 QA + escudos integrados al fondo del Home */
+#page{position:relative;isolation:isolate}.home-crest-backdrop{position:absolute;z-index:-1;inset:-24px -22px auto -22px;height:760px;overflow:hidden;pointer-events:none;border-radius:28px;opacity:.98}.home-crest-backdrop:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 18%,rgba(92,226,141,.07),transparent 28%),linear-gradient(180deg,rgba(8,5,12,.18),rgba(8,5,12,.78) 76%,rgba(8,5,12,1) 100%);z-index:2}.home-crest-cloud{position:absolute;inset:10px 0 0;display:grid;grid-template-columns:repeat(8,1fr);grid-auto-rows:88px;gap:16px 18px;padding:8px 20px;transform:rotate(-4deg) scale(1.05);filter:saturate(.82)}.home-bg-crest{display:grid;place-items:center;opacity:.13;filter:grayscale(.1);transform:translateY(var(--shift,0)) rotate(var(--rot,0deg));transition:opacity .25s ease}.home-bg-crest:nth-child(3n){opacity:.18}.home-bg-crest:nth-child(5n){opacity:.09}.home-bg-crest .crest{width:62px;height:62px;border:0!important;box-shadow:none!important;background:rgba(255,255,255,.96)}.home-bg-crest .crest img{padding:6px}.home-bg-crest .crest-fallback{font-size:10px}.home-dashboard-shell{position:relative}.home-dashboard-shell>.grid,.home-dashboard-shell>.pro-dashboard,.home-dashboard-shell>.home-leagues{position:relative;z-index:1}.home-leagues{margin-top:22px}.home-league-panel{background:linear-gradient(180deg,rgba(19,13,27,.90),rgba(11,8,16,.95));backdrop-filter:blur(18px)}
+@media(max-width:900px){.home-crest-backdrop{height:980px;inset:-18px -14px auto}.home-crest-cloud{grid-template-columns:repeat(5,1fr);gap:14px 12px}.home-bg-crest .crest{width:52px;height:52px}}
+@media(max-width:600px){.home-crest-cloud{grid-template-columns:repeat(4,1fr);grid-auto-rows:72px;padding:6px 8px}.home-bg-crest .crest{width:44px;height:44px}.home-crest-backdrop{height:1100px}}
+
 </style>
 </head>
 <body>
@@ -383,6 +389,26 @@ function endSeason(){const p=sortedTable('CLPD'),a=sortedTable('CL2B');openModal
 function showHelp(){openModal(`<div class="eyebrow">El Profe</div><h2>Cómo Jugar</h2><p class="small muted" style="line-height:1.7">Gestiona el XI y la táctica, avanza cada fecha con “Continuar”, realiza cambios durante el partido y usa el mercado para reforzar el plantel. Los jugadores y sus valores base provienen del snapshot 2026; el índice GRL es propio del juego y se calcula a partir de valor, edad y rol.</p><button class="btn primary" onclick="closeModal()">Entendido</button>`)}
 function openModal(html){$('#sheet').innerHTML=html;$('#modal').classList.add('show')}function closeModal(){$('#modal').classList.remove('show')}$('#modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});function toast(t){const x=$('#toast');x.textContent=t;x.classList.add('show');setTimeout(()=>x.classList.remove('show'),1800)}
 
+
+function startNewCareer(){
+  selectedClub=null;
+  setupLeague='CLPD';
+  pendingCareer=null;
+  if(matchEngine?.timer)clearInterval(matchEngine.timer);
+  matchEngine=null;
+  $('#landing')?.classList.add('hidden');
+  $('#game')?.classList.add('hidden');
+  $('#match')?.classList.remove('active');
+  $('#setup')?.classList.remove('hidden');
+  $$('.setup-page').forEach((x,i)=>x.classList.toggle('active',i===0));
+  $$('.step-dot').forEach((x,i)=>x.classList.toggle('active',i===0));
+  $$('[data-league]').forEach(b=>b.classList.toggle('active',b.dataset.league==='CLPD'));
+  if($('#startBtn'))$('#startBtn').disabled=true;
+  renderStyles();
+  updateIdPreview();
+  loadRealPlayers();
+  window.scrollTo(0,0);
+}
 function makeSchedule(ids){let arr=[...ids],rs=[];for(let r=0;r<arr.length-1;r++){let fs=[];for(let i=0;i<arr.length/2;i++){let a=arr[i],b=arr[arr.length-1-i];if(r%2)[a,b]=[b,a];fs.push([a,b])}rs.push(fs);arr=[arr[0],arr[arr.length-1],...arr.slice(1,-1)]}return [...rs,...rs.map(r=>r.map(([a,b])=>[b,a]))]}
 function emptyTable(ids){return Object.fromEntries(ids.map(id=>[id,{id,p:0,w:0,d:0,l:0,gf:0,ga:0,pts:0,form:[]}]))}
 function buildCareerState(){const t=teamById(selectedClub),rosters={};Object.values(CLUBS).flat().forEach(team=>{rosters[team.id]=playersForTeam(team).map(p=>({id:String(p.player_id),name:p.name,pos:posCode(p),position:p.position,sub_position:p.sub_position,age:ageOf(p),nationality:p.country_of_citizenship||'',value:Number(p.market_value_in_eur)||0,rating:playerRating(p),image:p.image_url||'',fitness:rnd(87,100),morale:rnd(72,92),goals:0,assists:0,apps:0,onXI:false,injured:0}))});Object.values(rosters).forEach(r=>autoXI(r));return {version:6,season:2026,round:0,userTeam:selectedClub,manager:{name:$('#dtName').value.trim(),last:$('#dtLast').value.trim(),nat:$('#dtNat').value,age:Number($('#dtAge').value),style:selectedStyle},rosters,leagueOf:Object.fromEntries(Object.entries(CLUBS).flatMap(([lg,arr])=>arr.map(t=>[t.id,lg]))),leagues:{CLPD:{schedule:makeSchedule(CLUBS.CLPD.map(x=>x.id)),table:emptyTable(CLUBS.CLPD.map(x=>x.id))},CL2B:{schedule:makeSchedule(CLUBS.CL2B.map(x=>x.id)),table:emptyTable(CLUBS.CL2B.map(x=>x.id))}},tactics:{formation:'4-3-3',style:'Equilibrado',press:'Media',line:'Media',tempo:'Normal'},balance:t.budget,board:72,fans:68,subsUsed:0,lastMatch:null,news:[{title:`${stateName()} asume en ${t.name}`,body:'La directiva presentó al nuevo entrenador y ya comienza la preparación de la temporada 2026.'}]};}
@@ -531,7 +557,17 @@ function clubDashboardCard(t,leagueLabel){const isUser=state&&state.userTeam===t
 function homeLeaguesHTML(){return `<section class="home-leagues"><div class="home-league-panel"><div class="home-league-head"><div><span>Primera División</span><h2>Chilean Premier League</h2></div><span>16 Clubes</span></div><div class="home-crest-grid">${CLUBS.CLPD.map(t=>clubDashboardCard(t,'Primera')).join('')}</div></div><div class="home-league-panel b"><div class="home-league-head"><div><span>Segunda División Profesional</span><h2>Primera B</h2></div><span>16 Clubes</span></div><div class="home-crest-grid">${CLUBS.CL2B.map(t=>clubDashboardCard(t,'Primera B')).join('')}</div></div></section>`}
 function openClubSnapshot(id){const t=teamById(id),league=state?.leagueOf?.[id]||Object.entries(CLUBS).find(([,arr])=>arr.some(x=>x.id===id))?.[0]||'CLPD',roster=(state?.rosters?.[id]||[]),avg=roster.length?Math.round(roster.reduce((a,p)=>a+(p.rating||0),0)/roster.length):'—',value=roster.reduce((a,p)=>a+(Number(p.value)||0),0),tbl=state?.leagues?.[league]?sortedTable(league):[],rank=tbl.findIndex(x=>x.id===id)+1;openModal(`<div class="club-modal-grid">${badge(t)}<div><div class="eyebrow">${league==='CLPD'?'Chilean Premier League':'Primera B'}</div><h2 style="margin:5px 0 4px">${t.name}</h2><p class="small muted" style="margin:0">${id===state?.userTeam?'Tu club actual':'Club de la temporada 2026'}</p></div></div><div class="club-modal-stats"><div class="club-modal-stat"><span>Posición</span><b>${rank>0?rank+'°':'—'}</b></div><div class="club-modal-stat"><span>GRL Plantel</span><b>${avg}</b></div><div class="club-modal-stat"><span>Valor Plantel</span><b>${value?euro(value):'—'}</b></div></div>${roster.length?`<div style="margin-top:16px"><div class="eyebrow">Jugadores Destacados</div><div class="lineup-list" style="margin-top:8px">${roster.slice().sort((a,b)=>b.rating-a.rating).slice(0,5).map(p=>`<div class="lineup-row"><span class="pos-tag">${p.pos}</span><div class="lineup-meta">${playerAvatar(p)}<span>${p.name}</span></div><span class="rate">${p.rating}</span></div>`).join('')}</div></div>`:''}<div class="actions" style="justify-content:flex-end;margin-top:16px"><button class="btn primary" onclick="closeModal()">Cerrar</button></div>`)}
 const _renderHomeV10=renderHome;
-renderHome=function(){_renderHomeV10();const page=$('#page');if(page)page.insertAdjacentHTML('beforeend',homeLeaguesHTML())}
+function homeCrestBackdropHTML(){
+  const teams=[...CLUBS.CLPD,...CLUBS.CL2B];
+  return `<div class="home-crest-backdrop"><div class="home-crest-cloud">${teams.map((t,i)=>`<span class="home-bg-crest" style="--shift:${(i%4)*7}px;--rot:${(i%5-2)*3}deg">${badge(t)}</span>`).join('')}</div></div>`;
+}
+renderHome=function(){
+  _renderHomeV10();
+  const page=$('#page');
+  if(!page)return;
+  const existing=page.innerHTML;
+  page.innerHTML=`<div class="home-dashboard-shell">${homeCrestBackdropHTML()}${existing}${homeLeaguesHTML()}</div>`;
+}
 
 $('#dtAge').innerHTML=Array.from({length:41},(_,i)=>`<option ${i+30===38?'selected':''}>${i+30}</option>`).join(''); renderStyles(); updateIdPreview(); renderLandingCrests(); loadRealPlayers(); preloadCrests(); $$('[data-league]').forEach(b=>b.onclick=()=>{setupLeague=b.dataset.league;$$('[data-league]').forEach(x=>x.classList.toggle('active',x===b));renderClubs()}); if(localStorage.getItem(SAVE_KEY)){ $('#resumeBtn').classList.remove('hidden'); $('#landingResumeBtn')?.classList.remove('hidden'); }
 </script>
