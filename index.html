@@ -1363,6 +1363,106 @@ body{background:linear-gradient(180deg,#07050b,#0b0710 45%,#09060d)}
 .crest.hasimg .crest-fallback{opacity:0!important}
 @media(max-width:650px){.ep-year-results{grid-template-columns:repeat(3,minmax(0,1fr))}.ep-year-actions{flex-direction:column}.ep-year-actions .btn{width:100%}}
 
+
+/* V80: mensajes desplazables y sustituciones en una cancha */
+.modal.chat-modal .sheet.chat-sheet{overflow-y:auto!important;max-height:min(88dvh,850px)!important}
+.ep-chat-header-actions{display:flex;align-items:center;gap:10px}
+.ep-chat-close{border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:10px 12px;background:#31243e;color:#fff;font-weight:900;cursor:pointer}
+.chat-list{max-height:min(57dvh,540px);overflow-y:auto!important;overscroll-behavior:contain;padding-right:6px}
+.modal.matchsubs-modal.show{align-items:center!important;justify-content:center!important}
+.modal.matchsubs-modal .sheet.matchsubs-sheet{width:min(1090px,100%)!important;max-height:calc(100dvh - 28px)!important;overflow-y:auto!important;margin:auto!important}
+.ep-sub-layout{padding:clamp(14px,2.5vw,25px)}.ep-sub-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:16px}.ep-sub-head h2{font-size:clamp(24px,3vw,35px);margin:6px 0}.ep-sub-head span{color:#8aeeb0;font-size:11px;font-weight:900}.ep-sub-head p{font-size:12px;color:#bcabc9;line-height:1.55}
+.ep-sub-columns{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:14px}.ep-sub-section-title{font-size:12px;font-weight:900;margin-bottom:10px}
+.ep-sub-field-wrap,.ep-sub-bench-wrap{padding:14px;background:#110d19;border:1px solid #43304d;border-radius:18px;min-width:0}
+.ep-sub-field{height:410px;position:relative;background:repeating-linear-gradient(90deg,#27653c 0 20%,#307647 20% 40%);border:3px solid #86b795;border-radius:14px;box-shadow:inset 0 0 0 12px rgba(0,0,0,.15);overflow:hidden}
+.ep-sub-field:before{content:"";position:absolute;left:50%;top:0;bottom:0;border-left:2px solid #ffffff7a}.ep-sub-field:after{content:"";position:absolute;left:50%;top:50%;width:80px;height:80px;border:2px solid #ffffff7a;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none}
+.ep-sub-onfield{position:absolute;transform:translate(-50%,-50%);width:75px;border:0;background:transparent;color:#fff;display:flex;align-items:center;flex-direction:column;cursor:pointer;z-index:1;padding:2px}.ep-sub-jersey{display:grid;place-items:center;width:36px;height:42px;background:#d83e51;clip-path:polygon(20% 0,40% 9%,60% 9%,80% 0,100% 22%,82% 45%,75% 32%,75% 100%,25% 100%,25% 32%,18% 45%,0 22%);font-size:14px;font-weight:1000;text-shadow:0 1px 3px #0008}.ep-sub-onfield small{background:#0a130ec9;border-radius:5px;font-size:9px;font-weight:900;padding:2px 4px;max-width:75px;overflow:hidden;text-overflow:ellipsis}.ep-sub-onfield.picked .ep-sub-jersey{background:#60e395;color:#062014;filter:drop-shadow(0 0 8px #79efad)}
+.ep-sub-bench{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;max-height:350px;overflow-y:auto}.ep-sub-bench .sub-player-card{min-height:122px}.ep-sub-auto{width:100%;background:#45325e!important;color:#fff!important;margin-top:12px}.ep-sub-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:15px}.ep-sub-bottom span{color:#c7b7d0;font-size:12px}
+@media(max-width:760px){.ep-sub-columns{grid-template-columns:1fr}.ep-sub-field{height:380px}.ep-sub-head,.ep-sub-bottom{flex-direction:column;align-items:stretch}.ep-chat-header-actions{flex-wrap:wrap}.chat-list{max-height:60dvh}}
+
+/* V81: centro de transmisiones para partidos ajenos */
+.spec-entry{margin:14px 0;padding:18px;border:1px solid rgba(110,225,150,.22);border-radius:20px;background:linear-gradient(140deg,#13251e,#151020)}
+.spec-entry-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.spec-entry h3{margin:0;font-size:19px}.spec-entry p{font-size:12px;color:#bdadca;margin:7px 0 13px}
+.spec-entry .btn{font-size:12px}
+.spec-overlay{position:fixed;inset:0;z-index:2000;background:rgba(3,5,7,.95);overflow:auto;padding:clamp(10px,2vw,24px);color:white}
+.spec-wrap{max-width:1110px;margin:auto}
+.spec-top{display:flex;gap:14px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+.spec-title{font-weight:950;font-size:20px}
+.spec-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.spec-option{display:flex;align-items:center;gap:9px;min-width:0;padding:12px;border:1px solid #3d3149;border-radius:14px;background:#191322;color:#fff;cursor:pointer;text-align:left}
+.spec-option span{flex:1;font-size:12px;min-width:0}.spec-option b{color:#77e6a0;white-space:nowrap}
+.spec-option:hover{border-color:#67df97}.spec-option .crest{width:32px!important;height:32px!important;flex:0 0 32px!important}
+.spec-option .crest>img{position:absolute!important;left:50%!important;top:50%!important;right:auto!important;bottom:auto!important;width:78%!important;height:78%!important;object-fit:contain!important;transform:translate(-50%,-50%)!important}
+.spec-watch-score{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:14px;border:1px solid #315c46;border-radius:22px;padding:18px;background:linear-gradient(145deg,#153727,#0b201a);margin:14px 0}
+.spec-team{text-align:center;display:grid;justify-items:center;gap:8px}.spec-team .crest{width:64px!important;height:64px!important;flex:0 0 64px!important}
+.spec-team .crest>img{position:absolute!important;left:50%!important;top:50%!important;right:auto!important;bottom:auto!important;width:78%!important;height:78%!important;object-fit:contain!important;transform:translate(-50%,-50%)!important}
+.spec-score{text-align:center;font-size:clamp(32px,5vw,56px);font-weight:1000}.spec-minute{display:block;margin:auto;font-size:11px;color:#91ffc1}
+.spec-pitch{position:relative;width:100%;aspect-ratio:1.72;min-height:230px;overflow:hidden;border:7px solid #183d2b;border-radius:20px;background:repeating-linear-gradient(90deg,#2c7a4b 0 12.5%,#308551 12.5% 25%)}
+.spec-fieldline{position:absolute;inset:5%;border:2px solid #ffffffa0;pointer-events:none}.spec-fieldline:before{content:'';position:absolute;left:50%;height:100%;border-left:2px solid #ffffffa0}.spec-fieldline:after{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border:2px solid #ffffffa0;width:16%;aspect-ratio:1;border-radius:50%}
+.spec-box{position:absolute;top:24%;height:52%;width:16%;border:2px solid #ffffffa0}.spec-box.left{left:5%}.spec-box.right{right:5%}
+.spec-dot{position:absolute;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:10px;font-weight:1000;color:#111;transform:translate(-50%,-50%);box-shadow:0 3px 9px #0007;transition:left .22s linear,top .22s linear}
+.spec-dot.home{background:#fff}.spec-dot.away{background:#e75a6c;color:#fff}
+.spec-ball{position:absolute;z-index:6;left:50%;top:50%;font-size:18px;transform:translate(-50%,-50%);transition:left .18s linear,top .18s linear;filter:drop-shadow(0 3px 4px #000)}
+.spec-panels{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+.spec-panel{border:1px solid #35283e;border-radius:16px;padding:14px;background:#17101e;min-height:130px}
+.spec-events{max-height:210px;overflow:auto;font-size:12px;line-height:1.7;color:#e4d8ed}
+.spec-controls{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:12px 0}
+.spec-controls button{background:#24172f;color:white;border:1px solid #493557;padding:11px 15px;border-radius:12px;cursor:pointer;font-weight:850}
+.spec-controls button.active{background:#63df93;color:#092116}
+.spec-progress{height:6px;background:#443148;border-radius:8px;overflow:hidden}.spec-progress>i{display:block;height:100%;width:0;background:#64e79a;transition:width .2s}
+@media(max-width:680px){.spec-list,.spec-panels{grid-template-columns:1fr}.spec-pitch{min-height:190px}.spec-dot{width:20px;height:20px;font-size:8px}}
+
+
+/* V82 · SISTEMA VISUAL MODO MANAGER: UNIFICACIÓN PREMIUM */
+:root{--mm-bg:#090711;--mm-panel:#171123;--mm-panel2:#100c19;--mm-edge:rgba(167,145,199,.16);--mm-green:#5cda88;--mm-gold:#f7d35c;--mm-muted:#b4a2c1}
+html{scroll-behavior:smooth}body{background:radial-gradient(circle at 95% 2%,rgba(98,216,135,.06),transparent 25%),#090711!important;color:#f5eff9}
+button,select,input{font-family:inherit}button{transition:background .16s,border-color .16s,box-shadow .16s,transform .16s}button:focus-visible,[tabindex]:focus-visible,select:focus-visible{outline:2px solid #74eaa0!important;outline-offset:3px}button:not(:disabled):hover{filter:brightness(1.06)}
+.top,.match-top{background:linear-gradient(180deg,#140c1d,#0e0a16)!important;border-color:var(--mm-edge)!important}
+.top .logo,.match-top .logo{font-weight:1000!important;letter-spacing:-.055em;font-style:italic}
+.tabs{border:1px solid var(--mm-edge)!important;background:#0c0813!important;border-radius:18px!important;padding:5px!important;gap:3px!important}
+.tab{border-radius:13px!important;font-weight:900!important;letter-spacing:.01em!important}.tab.active{background:rgba(82,218,127,.13)!important;color:#77e99e!important;box-shadow:inset 0 -2px 0 #5cda88!important}
+#page{max-width:1450px;margin:0 auto}.card,.dash-panel,.club-panel,.manager-panel,.tac-card,.market-status,.market-controls,.standings-card,.fixtures-card,.scorers-card,.champions-card{background:linear-gradient(160deg,#1c1429,#110c1b)!important;border:1px solid var(--mm-edge)!important;border-radius:23px!important;box-shadow:0 16px 38px rgba(0,0,0,.19)!important}
+.eyebrow,.section-head .eyebrow,.card-titlebar .eyebrow{color:#c8b5d9!important;letter-spacing:.11em!important;font-size:10px!important;font-weight:1000!important;text-transform:uppercase!important}
+.section-head{gap:12px!important}.section-head h2,.dash-hero h2{letter-spacing:-.04em!important}.btn.primary,.tour-continue{background:#5fda88!important;color:#082018!important;border-color:transparent!important;box-shadow:0 8px 26px rgba(54,201,111,.16)!important}.btn.primary:hover{background:#7bea9e!important}
+/* dashboard: hero de partido, tabla, métricas y tarjetas de noticias */
+.dashboard-shell{grid-template-columns:minmax(0,1.18fr) minmax(310px,.82fr)!important;gap:15px!important}.dashboard-main,.dashboard-side{gap:15px!important}
+.dash-hero{background:radial-gradient(circle at 0 0,rgba(56,130,112,.18),transparent 45%),linear-gradient(120deg,#15242a,#141323 58%,#311522)!important;border-color:rgba(239,189,83,.24)!important;min-height:325px!important}
+.dash-kicker{color:#bca5d2!important}.dash-match{position:relative;gap:18px!important}.dash-match:before{content:"";position:absolute;inset:0 50% 0 auto;width:1px;background:linear-gradient(transparent,rgba(255,255,255,.16),transparent);pointer-events:none}
+.dash-vs{font-size:clamp(30px,4vw,44px)!important;letter-spacing:-.055em}.dash-team b{font-size:clamp(13px,1.6vw,18px)!important;line-height:1.3}.dash-team small{color:#c0accc!important}
+.dash-team .crest,.pm-team .crest,.ms-team .crest,.clubcell .crest,.score-card .crest{aspect-ratio:1!important;flex-shrink:0!important;border-radius:50%!important;overflow:hidden!important}.dash-team .crest>img,.pm-team .crest>img,.ms-team .crest>img,.clubcell .crest>img,.score-card .crest>img{position:absolute!important;inset:unset!important;top:50%!important;left:50%!important;transform:translate(-50%,-50%)!important;width:80%!important;height:80%!important;object-fit:contain!important;object-position:center!important}
+.kpi-box{border:1px solid var(--mm-edge)!important;background:linear-gradient(145deg,#241a32,#15101e)!important;padding:17px!important}.kpi-box b{color:#78e59d!important;font-size:25px!important}
+.dash-news-item,.chat-row,.scorer-row{border-radius:15px!important;border:1px solid rgba(255,255,255,.07)!important;background:linear-gradient(150deg,rgba(255,255,255,.045),rgba(255,255,255,.008))!important}
+.dash-table tr.me td,.tour-table tr.me td{background:rgba(96,216,132,.10)!important}
+/* mentalidad / formaciones como interfaz de mánager */
+.tac-card,.tactic-panel,.tactic-layout>section{min-width:0}.style-card.active,.training-chip.active,.formation-btn.active,.form-card.active{box-shadow:inset 0 0 0 1px #65e18c,0 8px 22px rgba(76,221,128,.12)!important}
+.formation-btn,.formation-card,.form-card,.style-card,.training-chip{border-radius:13px!important}.tac-pitch,.pitch,.mini-pitch,.ep-pitch{box-shadow:inset 0 0 0 2px rgba(222,255,232,.35),0 16px 38px rgba(0,0,0,.25)!important}
+/* mercado: panel y negociación */
+.market-hero,.market-ref,.market-header,.market-status{border-radius:24px!important}.market-player-card{background:linear-gradient(180deg,#241a30,#15101d)!important;border:1px solid var(--mm-edge)!important;border-radius:19px!important}
+.market-player-card:hover{border-color:rgba(97,225,143,.45)!important;transform:translateY(-2px)}
+/* Club / estadio y vitrina */
+.stadium-card-premium,.stadium-scene,.stadium-scene.illustrated{border-radius:24px!important;overflow:hidden!important}.club-panel .finance-stat,.finance-stat,.meter-card,.trophy-box{border:1px solid rgba(255,255,255,.07)!important;border-radius:15px!important;background:linear-gradient(160deg,#251a31,#171020)!important}
+.finance-stat b,.finance-grid-v2 b{overflow-wrap:anywhere;font-size:clamp(15px,1.9vw,23px)!important}.finance-line{gap:14px!important}.finance-line>*{min-width:0}.trophy-box b{color:#eac35b!important}
+/* centro de mensajes */
+.modal.chat-modal.show,.modal.player-modal.show,.modal.market-modal.show,.modal.matchtactic-modal.show,.modal.matchsubs-modal.show,.modal.postmatch-modal.show,.modal.ep-decision-modal.show{position:fixed!important;inset:0!important;display:flex!important;align-items:center!important;justify-content:center!important;padding:clamp(10px,3vw,24px)!important;overflow:auto!important}
+.modal.chat-modal .sheet,.modal.player-modal .sheet,.modal.market-modal .sheet,.modal.matchtactic-modal .sheet,.modal.matchsubs-modal .sheet,.modal.postmatch-modal .sheet,.modal.ep-decision-modal .sheet{max-height:calc(100dvh - 28px)!important;margin:auto!important;overflow:auto!important;border-radius:26px!important}
+.chat-head,.chat-row,.decision-card,.decision-option{box-sizing:border-box}.chat-row:hover{border-color:rgba(95,222,137,.3)!important}.chat-preview-pill{max-width:max-content!important;width:auto!important;padding:6px 10px!important;border-radius:999px!important;background:rgba(93,220,139,.12)!important}
+.chat-list{max-height:65vh;overflow-y:auto;scrollbar-width:thin;scrollbar-color:#5b4871 transparent}.chat-main span{line-height:1.5!important}
+/* juego en vivo */
+.match-score,.ms-score,.scoreboard,.broadcast-score{background:linear-gradient(115deg,#11251f,#0d1d17 48%,#18251e)!important;border:1px solid rgba(82,220,140,.21)!important;border-radius:23px!important}
+.match-controls{position:relative;z-index:2;gap:8px!important}.match-controls .btn,.match-controls .speed{border-radius:12px!important;min-height:41px;padding:10px 14px!important}.speed.active{background:#61da8e!important;color:#092019!important}
+.feed,.stats-panel{border-radius:20px!important;background:linear-gradient(150deg,#1a1225,#110c1b)!important;border:1px solid var(--mm-edge)!important}
+.event.goal{border-left:3px solid #5edd91}.event.goal .etxt{background:rgba(69,192,113,.16)!important}
+/* modal de mitad de partido y ficha futbolista */
+.ep-decision-head,.pm-title,.pm-vs{text-align:center}.ep-choice,.decision-option{border-radius:14px!important}.ep-choice strong{font-size:13px}.ep-choice:hover{border-color:#63de91!important}
+.player-stat-grid .stat,.player-stat-grid .mini{border-radius:14px!important}.player-inspect{background:linear-gradient(145deg,#1c1428,#0e1420)!important}
+/* El botón único permanece dentro del contenido, nunca sobre tablas o controles */
+.continue{position:relative!important;inset:auto!important;top:auto!important;bottom:auto!important;left:auto!important;right:auto!important;transform:none!important;max-width:390px!important;width:100%!important;margin:18px 0 4px auto!important;z-index:5!important}
+/* Mejora de accesibilidad y responsividad */
+@media(max-width:1060px){.dashboard-shell{grid-template-columns:1fr!important}.dash-hero{min-height:300px!important}}
+@media(max-width:760px){#page{padding-bottom:40px}.tabs{overflow-x:auto!important}.dashboard-shell{gap:12px!important}.dash-panel,.club-panel,.manager-panel,.tac-card{border-radius:18px!important;padding:14px!important}.dash-match{grid-template-columns:minmax(0,1fr) 64px minmax(0,1fr)!important;gap:6px!important}.kpi-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.continue{max-width:100%!important;margin:16px auto!important}.match-controls{gap:5px!important}.match-controls .btn,.match-controls .speed{padding:9px!important;font-size:10px!important}.hero-copy h1{font-size:clamp(48px,14vw,75px)!important}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
 </style>
 </head>
 <body>
@@ -1533,6 +1633,8 @@ body{background:linear-gradient(180deg,#07050b,#0b0710 45%,#09060d)}
 
 
 <script>
+const localStorage = (() => { try { const s=window.localStorage; s.getItem('__ep_probe__'); return s; } catch(e) { const m=new Map(); return {getItem:k=>m.has(k)?m.get(k):null,setItem:(k,v)=>m.set(k,String(v)),removeItem:k=>m.delete(k),clear:()=>m.clear()}; } })();
+
 
 
 const PLAYER_DATA_URL='https://pub-e682421888d945d684bcae8890b0ec20.r2.dev/data/players.csv.gz';
@@ -1685,7 +1787,7 @@ function setMatchTacticPreset(preset){
 }
 function openMatchTactics(){
   if(!matchTacticDraft)matchTacticDraft={...state.tactics};
-  openModal(`<div class="matchtactic-modal-wrap"><div class="mt-head"><div><div class="eyebrow">Durante el partido ⚽</div><h2>Ajustar Táctica</h2><p>Refina el comportamiento del equipo en plena transmisión. Ajusta el estilo, la presión, la línea defensiva y el ritmo para responder mejor al momento del partido.</p></div><div class="mt-icon">📋</div></div><div class="mt-current"><div class="mt-chip"><span>Estilo</span><b>${matchTacticDraft.style}</b></div><div class="mt-chip"><span>Presión</span><b>${matchTacticDraft.press}</b></div><div class="mt-chip"><span>Línea</span><b>${matchTacticDraft.line}</b></div><div class="mt-chip"><span>Ritmo</span><b>${matchTacticDraft.tempo}</b></div></div><div class="mt-presets"><button class="mt-preset" onclick="setMatchTacticPreset('control')"><strong>Control del partido ⚽</strong><small>Más orden, posesión y equilibrio para manejar los tiempos.</small></button><button class="mt-preset" onclick="setMatchTacticPreset('intense')"><strong>Presión Alta 🔥</strong><small>Más intensidad, recuperación rápida y ritmo agresivo.</small></button><button class="mt-preset" onclick="setMatchTacticPreset('compact')"><strong>Bloque Bajo 🛡️</strong><small>Equipo más cerrado, línea baja y respuesta al contraataque.</small></button></div><div class="mt-form"><div class="control-grid">${matchTacticDraftControl('Estilo ⚙️','style',['Equilibrado','Posesión','Vertical','Contraataque','Agresiva'])}${matchTacticDraftControl('Presión 🧱','press',['Baja','Media','Alta'])}${matchTacticDraftControl('Línea Defensiva 📏','line',['Baja','Media','Alta'])}${matchTacticDraftControl('Ritmo ⏱️','tempo',['Pausado','Normal','Rápido'])}</div><div class="mt-actions"><button class="btn ghost" onclick="matchTacticDraft=null;closeModal()">Cancelar</button><button class="btn primary" onclick="applyMatchTactic()">Aplicar ajustes ✅</button></div></div></div>`, 'matchtactic')
+  openModal(`<div class="matchtactic-modal-wrap"><div class="mt-head"><div><div class="eyebrow">Durante el partido ⚽</div><h2>Ajustar Táctica 🧠</h2><p>Refina el comportamiento del equipo en plena transmisión. Ajusta el estilo, la presión, la línea defensiva y el ritmo para responder mejor al momento del partido.</p></div><div class="mt-icon">📋</div></div><div class="mt-current"><div class="mt-chip"><span>Estilo</span><b>${matchTacticDraft.style}</b></div><div class="mt-chip"><span>Presión</span><b>${matchTacticDraft.press}</b></div><div class="mt-chip"><span>Línea</span><b>${matchTacticDraft.line}</b></div><div class="mt-chip"><span>Ritmo</span><b>${matchTacticDraft.tempo}</b></div></div><div class="mt-presets"><button class="mt-preset" onclick="setMatchTacticPreset('control')"><strong>Control del partido ⚽</strong><small>Más orden, posesión y equilibrio para manejar los tiempos.</small></button><button class="mt-preset" onclick="setMatchTacticPreset('intense')"><strong>Presión Alta 🔥</strong><small>Más intensidad, recuperación rápida y ritmo agresivo.</small></button><button class="mt-preset" onclick="setMatchTacticPreset('compact')"><strong>Bloque Bajo 🛡️</strong><small>Equipo más cerrado, línea baja y respuesta al contraataque.</small></button></div><div class="mt-form"><div class="control-grid">${matchTacticDraftControl('Estilo ⚙️','style',['Equilibrado','Posesión','Vertical','Contraataque','Agresiva'])}${matchTacticDraftControl('Presión 🧱','press',['Baja','Media','Alta'])}${matchTacticDraftControl('Línea Defensiva 📏','line',['Baja','Media','Alta'])}${matchTacticDraftControl('Ritmo ⏱️','tempo',['Pausado','Normal','Rápido'])}</div><div class="mt-actions"><button class="btn ghost" onclick="matchTacticDraft=null;closeModal()">Cancelar</button><button class="btn primary" onclick="applyMatchTactic()">Aplicar ajustes ✅</button></div></div></div>`, 'matchtactic')
 }
 function applyMatchTactic(){if(matchTacticDraft){Object.assign(state.tactics,matchTacticDraft);matchTacticDraft=null;save()}const idx=matchEngine.home===state.userTeam?0:1;matchEngine.strength[idx]=teamStrength(state.userTeam)+styleBonus();addEvent(matchEngine.minute,'El DT modifica el plan táctico. 🧠');closeModal()}
 function skipToFinal(){if(!matchEngine||matchEngine.finished)return;while(matchEngine.minute<90){matchEngine.minute++;simulateMinute()}renderMatchUI();finishMatch()}
@@ -1777,29 +1879,29 @@ function openSubs(){
   matchSubSelection={out:null,in:null};
   renderMatchSubModal();
 }
+function epSuggestedSub(){
+ const {out,in:bench}=matchSubCandidates();if(!out.length||!bench.length)return toast('No hay cambios disponibles');
+ const candidates=[];
+ for(const a of out)for(const b of bench){
+  const compatible=a.pos===b.pos?24:(a.pos==='POR'||b.pos==='POR'?-100:(a.pos||'').slice(0,1)===(b.pos||'').slice(0,1)?8:-14);
+  const fatigue=(100-(Number(a.fitness)||75))*.65;
+  const score=compatible+fatigue+(Number(b.rating)-Number(a.rating))*.55+(Number(b.fitness)-Number(a.fitness))*.16;
+  candidates.push({a,b,score});
+ }
+ candidates.sort((x,y)=>y.score-x.score);
+ const best=candidates[0];if(!best||best.score< -10)return toast('No se recomienda cambiar jugadores ahora');
+ matchSubSelection={out:String(best.a.id),in:String(best.b.id)};makeSub();toast('Cambio sugerido y realizado automáticamente');
+}
 function renderMatchSubModal(){
-  if(!matchEngine||matchEngine.finished)return;
-  const left=5-(matchEngine.subs||0),{out,in:benchPlayers}=matchSubCandidates();
-  if(left<=0)return toast('Ya utilizaste los cinco cambios');
-  if(!out.length||!benchPlayers.length)return toast('No hay jugadores habilitados para realizar cambios');
-  const a=out.find(p=>String(p.id)===matchSubSelection.out);
-  const b=benchPlayers.find(p=>String(p.id)===matchSubSelection.in);
-  openModal(`<div class="sub-ui">
-    <div class="sub-ui-head">
-      <div><div class="sub-eyebrow">Durante el partido · ${Math.round(matchEngine.minute||0)}'</div>
-        <h2>Sustituciones 🔄</h2><p>Selecciona la camiseta del titular que sale y luego la del suplente que entra.</p></div>
-      <span class="sub-remaining">${left} de 5 cambios disponibles</span>
-    </div>
-    <div class="sub-ui-columns">
-      <section class="sub-panel"><div class="sub-panel-heading"><h3>Sale del campo 🔴</h3><span>${out.length} titulares</span></div>
-      <div class="sub-player-grid">${out.map(p=>matchSubCard(p,'out')).join('')}</div></section>
-      <section class="sub-panel"><div class="sub-panel-heading"><h3>Entra al campo 🟢</h3><span>${benchPlayers.length} suplentes</span></div>
-      <div class="sub-player-grid">${benchPlayers.map(p=>matchSubCard(p,'in')).join('')}</div></section>
-    </div>
-    <div class="sub-ui-footer"><div class="sub-ui-summary">${a&&b?`<strong>${a.name}</strong> sale · <strong>${b.name}</strong> entra`:'Elige un titular y un suplente para confirmar el cambio'}</div>
-      <div class="sub-ui-actions"><button class="btn ghost" onclick="closeModal()">Volver al partido</button>
-      <button id="confirmMatchSub" class="btn primary" ${a&&b?'':'disabled'} onclick="makeSub()">Confirmar cambio ✓</button></div></div>
-  </div>`,'matchsubs');
+ if(!matchEngine||matchEngine.finished)return;
+ const remaining=5-(matchEngine.subs||0),{out,in:bench}=matchSubCandidates();
+ if(remaining<=0)return toast('Ya utilizaste los cinco cambios');
+ if(!out.length||!bench.length)return toast('No hay jugadores habilitados para cambios');
+ const a=out.find(p=>String(p.id)===matchSubSelection.out),b=bench.find(p=>String(p.id)===matchSubSelection.in);
+ const order=(typeof getTacticalXI==='function'?getTacticalXI():out).filter(p=>out.some(x=>String(x.id)===String(p.id)));
+ const ordered=[...order,...out.filter(p=>!order.some(x=>String(x.id)===String(p.id)))].slice(0,11);
+ const coords=typeof MTV_POS!=='undefined'?MTV_POS:[[8,50],[22,15],[22,38],[22,63],[22,85],[38,22],[40,50],[38,78],[53,20],[55,50],[53,80]];
+ openModal(`<div class="ep-sub-layout"><div class="ep-sub-head"><div><span>Minuto ${Math.round(matchEngine.minute||0)} · ${remaining} cambios disponibles</span><h2>Sustituciones 🔄</h2><p>Selecciona una camiseta en la cancha y una de la banca. La sugerencia prioriza posición natural, cansancio y rendimiento.</p></div><button class="btn ghost" onclick="closeModal()">Cerrar ✕</button></div><div class="ep-sub-columns"><section class="ep-sub-field-wrap"><div class="ep-sub-section-title">Titulares en la cancha ⚽</div><div class="ep-sub-field">${ordered.map((p,i)=>{const point=coords[i]||[50,50];return `<button class="ep-sub-onfield ${String(p.id)===matchSubSelection.out?'picked':''}" style="left:${Math.max(10,Math.min(90,point[0]))}%;top:${Math.max(10,Math.min(90,point[1]))}%" onclick="pickMatchSub('out','${p.id}')"><span class="ep-sub-jersey">${p.shirtNumber||'—'}</span><small>${(p.name||'').split(' ').slice(-1)[0]}</small></button>`}).join('')}</div></section><section class="ep-sub-bench-wrap"><div class="ep-sub-section-title">Banca de suplentes 🪑</div><div class="ep-sub-bench">${bench.map(p=>matchSubCard(p,'in')).join('')}</div><button type="button" class="btn ep-sub-auto" onclick="epSuggestedSub()">Sugerir cambios 🧠</button></section></div><div class="ep-sub-bottom"><span>${a&&b?`${a.name} sale · ${b.name} entra`:'Selecciona un titular y un suplente'}</span><button class="btn primary" ${a&&b?'':'disabled'} onclick="makeSub()">Confirmar cambio ✓</button></div></div>`,'matchsubs');
 }
 function makeSub(){
   if(!matchEngine||matchEngine.finished)return;
@@ -1930,7 +2032,7 @@ function simulateQuickGoals(teamId,n){for(let i=0;i<n;i++)awardGoalForTeam(teamI
 function simulateMinute(){const m=matchEngine,delta=m.strength[0]-m.strength[1],poss=clamp(50+delta*.75+(state.tactics.style==='Posesión'?(m.home===state.userTeam?5:-5):0),35,65);m.stats.pos=[Math.round(poss),100-Math.round(poss)];const side=Math.random()*100<poss?0:1;($('#ballDot')||$('#mtvBall')).style.left=(side===0?rnd(48,92):rnd(8,52))+'%';($('#ballDot')||$('#mtvBall')).style.top=rnd(22,78)+'%';if(Math.random()<.075){m.stats.shots[side]++;const quality=clamp(.19+(m.strength[side]-m.strength[1-side])*.008,0.08,.38),xg=Math.random()*(quality+.18);m.stats.xg[side]+=xg;const on=Math.random()<.43;if(on)m.stats.on[side]++;if(on&&Math.random()<clamp(.19+quality*.34,.16,.34)){m.score[side]++;const teamId=side===0?m.home:m.away,scorer=awardGoalForTeam(teamId,true)||{name:'un delantero'};addEvent(m.minute,`⚽ ¡Gol de ${scorer.name}! ${goalText()}`,'goal')}else if(on)addEvent(m.minute,'🧤 Remate al arco y gran respuesta del arquero.');else if(Math.random()<.45)addEvent(m.minute,'↗ Remate que se va desviado por poco.')}if(Math.random()<.028){m.stats.corners[side]++;addEvent(m.minute,'🚩 Córner peligroso para '+teamById(side===0?m.home:m.away).name+'.')}if(Math.random()<.055){const foulSide=1-side;m.stats.fouls[foulSide]++;if(Math.random()<.18){m.stats.yellow[foulSide]++;addEvent(m.minute,'🟨 Tarjeta amarilla por una falta táctica.')}}if([15,30,45,60,75].includes(m.minute))addEvent(m.minute,pick(['El partido se disputa con mucha intensidad en la mitad.','Ambos equipos buscan espacios entre líneas.','La presión aumenta y cada pérdida empieza a pesar.','Se escucha con fuerza a las hinchadas desde las tribunas.']))}
 function addEvent(min,text,kind=''){matchEngine.lastEvent=text;matchEngine.events.unshift({min,text,kind});$('#feedList').innerHTML=matchEngine.events.map(e=>`<div class="event ${e.kind}"><span class="emin">${e.min}'</span><span class="etxt">${e.text}</span></div>`).join('');const tick=$('#eventTicker');if(tick)tick.textContent=`${min}' · ${text}`}
 function renderMatchUI(){const m=matchEngine,h=teamById(m.home),a=teamById(m.away);$('#broadcastBar').innerHTML=`<span class="broadcast-live">En vivo</span><div class="broadcast-center"><b>${h.name} vs ${a.name}</b><span>Fecha ${state.round+1} · ${leagueName(myLeague())}</span></div><div class="broadcast-right"><span class="tiny">Transmisión</span><b>${m.minute<46?'Primer tiempo':'Segundo tiempo'} · ${Math.min(m.minute,90)}'</b></div>`;$('#matchScore').innerHTML=`<div class="ms-team">${badge(h)}<b>${h.name}</b></div><div><div class="bigscore">${m.score[0]} - ${m.score[1]}</div><span class="minute">${Math.min(m.minute,90)}'</span><div class="half">${m.minute<46?'Primer tiempo':'Segundo tiempo'}</div><div class="score-sub"><span class="score-chip">Liga ${state.season}</span><span class="score-chip">${m.paused?'Pausado':'En juego'}</span></div></div><div class="ms-team">${badge(a)}<b>${a.name}</b></div>`;$('#possA').textContent=m.stats.pos[0]+'%';$('#possB').textContent=m.stats.pos[1]+'%';$('#possFill').style.width=m.stats.pos[0]+'%';$('#statRibbon').innerHTML=`<div class="stat-pill"><b>${m.stats.shots[0]} - ${m.stats.shots[1]}</b><span>Remates</span></div><div class="stat-pill"><b>${m.stats.on[0]} - ${m.stats.on[1]}</b><span>Al arco</span></div><div class="stat-pill"><b>${m.stats.xg[0].toFixed(1)} - ${m.stats.xg[1].toFixed(1)}</b><span>xG</span></div><div class="stat-pill"><b>${m.stats.corners[0]} - ${m.stats.corners[1]}</b><span>Córners</span></div>`;$('#duelStrip').innerHTML=`<div class="duel-side"><b>${h.name}</b><span>GRL ${Math.round(m.strength[0])} · posesión ${m.stats.pos[0]}%</span></div><div class="duel-vs">broadcast</div><div class="duel-side"><b>${a.name}</b><span>GRL ${Math.round(m.strength[1])} · posesión ${m.stats.pos[1]}%</span></div>`;const rows=[['Posesión',m.stats.pos[0]+'%',m.stats.pos[1]+'%'],['Remates',m.stats.shots[0],m.stats.shots[1]],['Al arco',m.stats.on[0],m.stats.on[1]],['Goles esperados (xG)',m.stats.xg[0].toFixed(1),m.stats.xg[1].toFixed(1)],['Córners',m.stats.corners[0],m.stats.corners[1]],['Faltas',m.stats.fouls[0],m.stats.fouls[1]],['Amarillas',m.stats.yellow[0],m.stats.yellow[1]],['Rojas',m.stats.red[0],m.stats.red[1]]];$('#matchStats').innerHTML=`<div class="section-label">Datos del Partido</div><table class="stats-table">${rows.map(r=>`<tr><td>${r[1]}</td><td>${r[0]}</td><td>${r[2]}</td></tr>`).join('')}</table>`;if($('#eventTicker')&&!m.events.length)$('#eventTicker').textContent='La transmisión comenzará en segundos…'}
-function finishMatch(){const m=matchEngine;if(m.finished)return;m.finished=true;clearInterval(m.timer);m.timer=null;addEvent(90,'⏱️ Final del partido.');$('#pauseBtn').disabled=true;$('#subsBtn').disabled=true;$$('.speed').forEach(b=>b.disabled=true);const [hg,ag]=m.score;applyResult(myLeague(),m.home,m.away,hg,ag);const round=state.leagues[myLeague()].schedule[state.round];round.forEach(f=>{if(f[0]===m.home&&f[1]===m.away)return;const s=quickScore(f[0],f[1]);applyResult(myLeague(),f[0],f[1],s[0],s[1]);simulateQuickGoals(f[0],s[0]);simulateQuickGoals(f[1],s[1])});Object.keys(state.leagues).filter(lg=>lg!==myLeague()).forEach(lg=>{const otherRound=state.leagues[lg]?.schedule?.[state.round];if(!otherRound)return;otherRound.forEach(f=>{const s=quickScore(f[0],f[1]);applyResult(lg,f[0],f[1],s[0],s[1]);simulateQuickGoals(f[0],s[0]);simulateQuickGoals(f[1],s[1])})});const userHome=m.home===state.userTeam,ug=userHome?hg:ag,og=userHome?ag:hg;state.lastMatch={home:m.home,away:m.away,hg,ag,userGoals:ug,oppGoals:og};if(ug>og){state.board=clamp(state.board+2,0,100);state.fans=clamp(state.fans+3,0,100);state.news.unshift({title:`Triunfo de ${myTeam().name}`,body:`El equipo ganó ${ug}-${og} y suma confianza para lo que viene.`})}else if(ug<og){state.board=clamp(state.board-2,0,100);state.fans=clamp(state.fans-2,0,100);state.news.unshift({title:'Una derrota para corregir',body:`El equipo cayó ${ug}-${og}. El cuerpo técnico ya piensa en la próxima fecha.`})}else state.news.unshift({title:'Reparto de puntos',body:`Empate ${ug}-${og} en una fecha muy disputada.`});postPlayers();state.round++;state.balance+=myLeague()==='CLPD'?rnd(70000,150000):rnd(35000,80000);save();renderHero();setTimeout(()=>toast('Partido finalizado · fecha guardada'),200)}
+function finishMatch(){const m=matchEngine;if(m.finished)return;m.finished=true;clearInterval(m.timer);m.timer=null;addEvent(90,'⏱️ Final del partido.');$('#pauseBtn').disabled=true;$('#subsBtn').disabled=true;$$('.speed').forEach(b=>b.disabled=true);const [hg,ag]=m.score;applyResult(myLeague(),m.home,m.away,hg,ag);const round=state.leagues[myLeague()].schedule[state.round];round.forEach(f=>{if(f[0]===m.home&&f[1]===m.away)return;const s=spectatorOfficialScore(myLeague(),f[0],f[1]);applyResult(myLeague(),f[0],f[1],s[0],s[1]);simulateQuickGoals(f[0],s[0]);simulateQuickGoals(f[1],s[1])});Object.keys(state.leagues).filter(lg=>lg!==myLeague()).forEach(lg=>{const otherRound=state.leagues[lg]?.schedule?.[state.round];if(!otherRound)return;otherRound.forEach(f=>{const s=spectatorOfficialScore(lg,f[0],f[1]);applyResult(lg,f[0],f[1],s[0],s[1]);simulateQuickGoals(f[0],s[0]);simulateQuickGoals(f[1],s[1])})});const userHome=m.home===state.userTeam,ug=userHome?hg:ag,og=userHome?ag:hg;state.lastMatch={home:m.home,away:m.away,hg,ag,userGoals:ug,oppGoals:og};if(ug>og){state.board=clamp(state.board+2,0,100);state.fans=clamp(state.fans+3,0,100);state.news.unshift({title:`Triunfo de ${myTeam().name}`,body:`El equipo ganó ${ug}-${og} y suma confianza para lo que viene.`})}else if(ug<og){state.board=clamp(state.board-2,0,100);state.fans=clamp(state.fans-2,0,100);state.news.unshift({title:'Una derrota para corregir',body:`El equipo cayó ${ug}-${og}. El cuerpo técnico ya piensa en la próxima fecha.`})}else state.news.unshift({title:'Reparto de puntos',body:`Empate ${ug}-${og} en una fecha muy disputada.`});postPlayers();state.round++;state.balance+=myLeague()==='CLPD'?rnd(70000,150000):rnd(35000,80000);save();renderHero();setTimeout(()=>toast('Partido finalizado · fecha guardada'),200)}
 function quickScore(a,b){const d=teamStrength(a)-teamStrength(b)+1.5,la=clamp(1.25+d*.055,.25,3.1),lb=clamp(1.05-d*.05,.2,2.8);return[poisson(la),poisson(lb)]}
 function postPlayers(){Object.entries(state.rosters).forEach(([club,r])=>r.forEach(p=>{if(p.injured)p.injured--;if(club===state.userTeam&&p.onXI){p.apps=(p.apps||0)+1;p.fitness=clamp(p.fitness-rnd(state.tactics.press==='Alta'?8:5,state.tactics.press==='Alta'?14:10),38,100);p.morale=clamp(p.morale+rnd(-2,3),48,100);if(Math.random()<.018)p.injured=rnd(1,4)}else if(club===state.userTeam){p.fitness=clamp(p.fitness+rnd(3,7),0,100)}}))}
 /* legacy endSeason removed in v44 */
@@ -2027,7 +2129,7 @@ function unreadDecisionCount(){ensureDecisions();return Object.values(state.deci
 function renderMessageButton(){const el=$('#chatTopBtn');if(!el)return;const n=unreadDecisionCount();el.innerHTML=`✉${n?`<span class="msg-count">${n}</span>`:''}`}
 const _renderHeroV10=renderHero;renderHero=function(){_renderHeroV10();ensureDecisions();renderMessageButton()}
 function chatRows(cat='all'){ensureDecisions();const list=DECISION_LIBRARY.filter(x=>cat==='all'||x.cat===cat);return list.map(x=>{const unread=!!state.decisions.unread[x.id],resolved=!!state.decisions.resolved[x.id];const cls=x.cat==='mercado'?'market':x.cat==='club'?'club':'staff';return `<div class="chat-row" onclick="openDecision('${x.id}')"><div class="chat-avatar ${cls}">${x.icon}</div><div class="chat-main"><span class="chat-preview-pill">${x.tag||'Chat'}</span><b>${x.from}</b><span>${resolved?'✓✓ ':''}${x.preview}</span></div><div class="chat-meta"><span class="chat-chip">${resolved?'Resuelto':'Hoy'}</span>${unread?'<div class="unread-dot">1</div>':''}</div></div>`}).join('')}
-function openChats(cat='all'){ensureDecisions();openModal(`<div class="chat-modal"><div class="chat-head"><div class="chat-title-wrap"><div class="chat-bubble-hero">💬</div><div><h2>Centro de mensajes</h2><p>Decisiones del club, plantel, mercado y directiva</p></div></div><span class="chat-chip">${unreadDecisionCount()} pendientes</span></div><div class="chat-tabs"><button class="chat-tab ${cat==='all'?'active':''}" onclick="openChats('all')">Todos ${unreadDecisionCount()?`<span class="chat-badge">${unreadDecisionCount()}</span>`:''}</button><button class="chat-tab ${cat==='plantel'?'active':''}" onclick="openChats('plantel')">Plantel</button><button class="chat-tab ${cat==='mercado'?'active':''}" onclick="openChats('mercado')">Mercado</button><button class="chat-tab ${cat==='club'?'active':''}" onclick="openChats('club')">Club</button></div><div class="chat-list">${chatRows(cat)}</div></div>`,'chat')}
+function openChats(cat='all'){ensureDecisions();openModal(`<div class="chat-modal"><div class="chat-head"><div class="chat-title-wrap"><div class="chat-bubble-hero">💬</div><div><h2>Centro de Mensajes 💬</h2><p>Decisiones del club, plantel, mercado y directiva</p></div></div><div class="ep-chat-header-actions"><span class="chat-chip">${unreadDecisionCount()} pendientes</span><button class="ep-chat-close" type="button" onclick="closeModal()" aria-label="Cerrar mensajes">Cerrar ✕</button></div></div><div class="chat-tabs"><button class="chat-tab ${cat==='all'?'active':''}" onclick="openChats('all')">Todos ${unreadDecisionCount()?`<span class="chat-badge">${unreadDecisionCount()}</span>`:''}</button><button class="chat-tab ${cat==='plantel'?'active':''}" onclick="openChats('plantel')">Plantel</button><button class="chat-tab ${cat==='mercado'?'active':''}" onclick="openChats('mercado')">Mercado</button><button class="chat-tab ${cat==='club'?'active':''}" onclick="openChats('club')">Club</button></div><div class="chat-list">${chatRows(cat)}</div></div>`,'chat')}
 function openDecision(id){ensureDecisions();const d=DECISION_LIBRARY.find(x=>x.id===id);if(!d)return;state.decisions.unread[id]=false;save();openModal(`<div class="chat-decision-shell"><div class="chat-back-row"><button class="back" onclick="openChats()">‹ Volver a Chats</button><span class="chat-chip">${d.tag||'Mensaje'}</span></div><div class="decision-card v60"><div class="decision-hero"><div class="chat-avatar">${d.icon}</div><div><span class="decision-eyebrow">${d.from}</span><h3>${d.title}</h3></div></div><p>${d.body}</p>${state.decisions.resolved[id]?`<div class="decision-resolution"><b>✅ Decisión tomada</b><span>${state.decisions.resolved[id]}</span></div>`:`<div class="decision-options">${d.options.map((o,i)=>`<button class="decision-option" onclick="resolveDecision('${id}',${i})"><span class="opt-title">${o.emoji||'👉'} ${o.label}</span><span class="decision-impact">${o.impact}</span></button>`).join('')}</div>`}</div></div>`,'chat')}
 function resolveDecision(id,index){const d=DECISION_LIBRARY.find(x=>x.id===id);if(!d||!d.options[index])return;ensureDecisions();d.options[index].apply();state.decisions.resolved[id]=d.options[index].label;state.decisions.unread[id]=false;state.news=state.news||[];state.news.unshift({title:d.title,body:`Decisión del DT: ${d.options[index].label}.`});save();renderHero();openDecision(id);toast('Decisión guardada')}
 function winChance(homeId,awayId){const hs=teamStrength(homeId)+(homeId===state.userTeam?styleBonus():0),as=teamStrength(awayId)+(awayId===state.userTeam?styleBonus():0);const u=state.userTeam===homeId?hs:as,o=state.userTeam===homeId?as:hs;return clamp(Math.round(50+(u-o)*3.2),18,92)}
@@ -2583,8 +2685,8 @@ function epSound(kind){
    tones.forEach((hz,i)=>{const o=epAudio.createOscillator(),g=epAudio.createGain(),t=epAudio.currentTime+i*.115;o.type=kind==='goal'?'triangle':'sine';o.frequency.setValueAtTime(hz,t);g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.11,t+.015);g.gain.exponentialRampToValueAtTime(.0001,t+.18);o.connect(g);g.connect(epAudio.destination);o.start(t);o.stop(t+.19)});
  }catch(e){console.warn('Audio no disponible',e)}
 }
-function epTimerLabel(){const m=matchEngine;const secs=Math.max(0,(90-m.minute)*(EP_MATCH_DURATION_MS[m.speed]||EP_MATCH_DURATION_MS[1])/90/1000);return Math.max(1,Math.ceil(secs/60))+' min aprox.'}
-function epUpdateTimer(){let el=document.getElementById('epMatchTimer');if(!el){const host=document.querySelector('.match-controls');if(!host)return;el=document.createElement('div');el.id='epMatchTimer';el.className='ep-timer-info';host.insertAdjacentElement('afterend',el)}if(!matchEngine)return;el.innerHTML=`⏱️ Velocidad ${matchEngine.speed}x · ${epTimerLabel()} restantes <button onclick="epAudioEnabled=!epAudioEnabled;epUpdateTimer()" aria-label="Activar o desactivar sonido">${epAudioEnabled?'🔊':'🔇'}</button>`}
+function epTimerLabel(){const m=matchEngine;const secs=Math.max(0,(90-m.minute)*(EP_MATCH_DURATION_MS[m.speed]||EP_MATCH_DURATION_MS[1])/90/1000);return `${Math.floor(secs/60)}:${String(Math.ceil(secs%60)).padStart(2,'0')} aprox.`}
+function epUpdateTimer(){let el=document.getElementById('epMatchTimer');if(!el){const host=document.querySelector('.match-controls');if(!host)return;el=document.createElement('div');el.id='epMatchTimer';el.className='ep-timer-info';host.insertAdjacentElement('afterend',el)}if(!matchEngine)return;el.innerHTML=`Velocidad ${matchEngine.speed}x · ${epTimerLabel()} restantes ⏱️ <button onclick="epAudioEnabled=!epAudioEnabled;epUpdateTimer()" aria-label="Activar o desactivar sonido">${epAudioEnabled?'🔊':'🔇'}</button>`}
 startTimer=function(){if(!matchEngine)return;if(matchEngine.timer)clearInterval(matchEngine.timer);matchEngine.timer=setInterval(matchTick,(EP_MATCH_DURATION_MS[matchEngine.speed]||EP_MATCH_DURATION_MS[1])/90);epUpdateTimer()};
 setSpeed=function(v){if(!matchEngine||matchEngine.finished)return;matchEngine.speed=v;$$('.speed').forEach(b=>b.classList.toggle('active',Number(b.dataset.speed)===v));startTimer()};
 const epAddEventOriginal=addEvent;
@@ -2653,6 +2755,25 @@ showPostMatchSummary=function(m,competition='Liga'){
 };
 
 
+/* V80: velocidad solicitada, controles robustos y simulación visible */
+EP_MATCH_DURATION_MS[1]=120000;EP_MATCH_DURATION_MS[2]=90000;EP_MATCH_DURATION_MS[4]=60000;
+const epV80OriginalSkip=skipToFinal;
+skipToFinal=function(){
+ const m=matchEngine;if(!m||m.finished)return;
+ if(m.activeDecision){m.activeDecision=null;m.paused=false;closeModal()}
+ if(m.timer){clearInterval(m.timer);m.timer=null}
+ m.paused=false;
+ let guard=0;
+ while(m.minute<90&&guard++<91){m.minute++;simulateMinute()}
+ renderMatchUI();epUpdateTimer();finishMatch();
+};
+const epV80OriginalInit=initMatch;
+initMatch=function(f){epV80OriginalInit(f);const btn=document.querySelector('.match-controls .btn.ghost');if(btn)btn.onclick=()=>skipToFinal();};
+const epV80OriginalPause=togglePause;
+togglePause=function(){if(!matchEngine||matchEngine.finished)return;if(matchEngine.activeDecision){toast('Resuelve la decisión del DT para continuar');return}epV80OriginalPause()};
+const epV80OriginalTick=matchTick;
+matchTick=function(){if(!matchEngine||matchEngine.finished)return;epV80OriginalTick()};
+
 /* V58 — cancha completa de 22 jugadores ligada a la simulación */
 const MTV_POS=[[8,50],[22,15],[22,38],[22,63],[22,85],[38,22],[40,50],[38,78],[53,20],[55,50],[53,80]];
 let mtvFlashTimer=null;
@@ -2676,11 +2797,11 @@ function mtvAdvance(initial=false){
  field.querySelectorAll('.mtv-player').forEach(p=>{
   const i=Number(p.dataset.index),side=p.dataset.side,base=MTV_POS[i]||[50,50];
   let x=side==='home'?base[0]:100-base[0],y=side==='home'?base[1]:100-base[1];
-  if(!initial&&i!==0){const move=Math.min(9,Math.max(2,(m.minute%11)+2));x+=(side==='home'?1:-1)*(carrierSide===side?move*.55:-move*.3);y+=(Math.random()-.5)*11}
+  if(!initial&&i!==0){const intensity=state?.tactics?.press==='Alta'?1.35:state?.tactics?.press==='Baja'?.8:1;const move=Math.min(12,Math.max(3,(m.minute%11)+3)*intensity);p.style.transition=`left ${state?.tactics?.tempo==='Rápido'?.3:.75}s ease, top ${state?.tactics?.tempo==='Rápido'?.3:.75}s ease`;x+=(side==='home'?1:-1)*(carrierSide===side?move*.55:-move*.3);y+=(Math.random()-.5)*11}
   x=Math.min(94,Math.max(6,x));y=Math.min(91,Math.max(9,y));p.style.left=x+'%';p.style.top=y+'%';
   const isCarrier=side===carrierSide&&i===carrierIndex;p.classList.toggle('carrier',isCarrier);if(isCarrier)chosen={x,y};
  });
- const ball=document.getElementById('mtvBall');if(ball&&chosen){ball.style.left=Math.min(96,chosen.x+1)+'%';ball.style.top=Math.min(95,chosen.y+2)+'%'}
+ const ball=document.getElementById('mtvBall');if(ball&&chosen){const fast=state?.tactics?.tempo==='Rápido'?0.23:state?.tactics?.tempo==='Pausado'?0.9:0.48;ball.style.transition=`left ${fast}s linear, top ${fast}s linear`;ball.style.left=Math.min(96,chosen.x+1)+'%';ball.style.top=Math.min(95,chosen.y+2)+'%'}
 }
 function mtvFlash(kind,message){
  const el=document.getElementById('mtvAlert');if(!el)return;
@@ -2800,6 +2921,153 @@ renderHome = function(){
   if (!page) return;
   page.querySelectorAll('.home-leagues, .home-football-universe').forEach(node => node.remove());
 };
+
+
+/* V81 Spectator mode: non-user fixtures only, round-canonical results */
+let spectatorSession=null;
+function spectatorKey(league,round,a,b){return `${state.season}:${league}:${round}:${a}:${b}`}
+function spectatorOfficialScore(league,a,b){
+  const key=spectatorKey(league,state.round,a,b);
+  const saved=state.spectatorResults?.[key];
+  return Array.isArray(saved?.score)?[...saved.score]:quickScore(a,b);
+}
+function spectatorFixtureList(){
+  if(!state)return [];
+  const out=[];
+  for(const [lg,data] of Object.entries(state.leagues||{})){
+    const fixtures=data.schedule?.[state.round]||[];
+    fixtures.forEach(pair=>{
+      if(pair.includes(state.userTeam))return;
+      out.push({league:lg,round:state.round,a:pair[0],b:pair[1]});
+    });
+  }
+  return out;
+}
+function spectatorEntry(){
+  return `<section class="spec-entry"><div class="spec-entry-head"><div><h3>Otros partidos en vivo 📺</h3><p>Observa los encuentros de la fecha entre otros clubes, con cancha, reloj y relato. Sus resultados se guardan para la jornada.</p></div><button class="btn primary" onclick="openSpectatorHub()">Ver transmisiones ⚽</button></div></section>`;
+}
+function spectatorInject(){
+  if(!state)return;
+  const page=document.querySelector('#page');
+  if(page&&!page.querySelector('.spec-entry'))page.insertAdjacentHTML('beforeend',spectatorEntry());
+}
+const spectatorRenderCalendar=renderCalendar;
+renderCalendar=function(){spectatorRenderCalendar();spectatorInject()};
+const spectatorRenderTournaments=renderTournaments;
+renderTournaments=function(){spectatorRenderTournaments();spectatorInject()};
+function spectatorOverlay(html){
+  let el=document.getElementById('spectatorOverlay');
+  if(!el){el=document.createElement('div');el.id='spectatorOverlay';el.className='spec-overlay';document.body.appendChild(el)}
+  el.innerHTML=html;
+  document.body.style.overflow='hidden';
+  return el;
+}
+function closeSpectator(){
+  if(spectatorSession?.timer)clearInterval(spectatorSession.timer);
+  spectatorSession=null;
+  document.getElementById('spectatorOverlay')?.remove();
+  document.body.style.overflow='';
+}
+function openSpectatorHub(){
+  if(spectatorSession?.timer)clearInterval(spectatorSession.timer);
+  spectatorSession=null;
+  const fixtures=spectatorFixtureList();
+  const options=fixtures.map((f,i)=>{
+    const r=state.spectatorResults?.[spectatorKey(f.league,f.round,f.a,f.b)];
+    return `<button class="spec-option" onclick="watchSpectator(${i})">${badge(teamById(f.a))}<span>${teamById(f.a).name} vs ${teamById(f.b).name}<small style="display:block;color:#af9dbb">${leagueName(f.league)}</small></span>${badge(teamById(f.b))}<b>${r?`${r.score[0]}–${r.score[1]}`:'Ver en vivo'}</b></button>`
+  }).join('');
+  spectatorOverlay(`<div class="spec-wrap"><div class="spec-top"><div><div class="spec-title">Centro de transmisiones 📺</div><div class="small muted">Temporada ${state.season} · Fecha ${state.round+1}</div></div><button class="btn ghost" onclick="closeSpectator()">Cerrar ✕</button></div><div class="spec-list">${options||'<p>No hay encuentros disponibles en esta fecha.</p>'}</div></div>`);
+}
+function watchSpectator(index){
+  const f=spectatorFixtureList()[index];if(!f)return;
+  if(spectatorSession?.timer)clearInterval(spectatorSession.timer);
+  const key=spectatorKey(f.league,f.round,f.a,f.b);
+  const existing=state.spectatorResults?.[key];
+  const target=existing?.score||quickScore(f.a,f.b);
+  const goals=[];
+  for(let side=0;side<2;side++)for(let i=0;i<target[side];i++)goals.push({minute:8+Math.floor(Math.random()*78),side});
+  goals.sort((x,y)=>x.minute-y.minute);
+  spectatorSession={...f,key,minute:0,score:[0,0],target,goals,events:["0' · Comienza el encuentro ⚽"],paused:false,speed:1,timer:null,finished:false};
+  spectatorOverlay(`<div class="spec-wrap"><div class="spec-top"><div><div class="spec-title">Transmisión en vivo 📺</div><div class="small muted">${leagueName(f.league)} · Fecha ${f.round+1}</div></div><button class="btn ghost" onclick="openSpectatorHub()">Volver a partidos</button></div>
+  <div class="spec-watch-score"><div class="spec-team">${badge(teamById(f.a))}<strong>${teamById(f.a).name}</strong></div><div class="spec-score"><span id="specScore">0 - 0</span><small class="spec-minute" id="specMinute">0'</small></div><div class="spec-team">${badge(teamById(f.b))}<strong>${teamById(f.b).name}</strong></div></div>
+  <div class="spec-pitch"><div class="spec-fieldline"></div><div class="spec-box left"></div><div class="spec-box right"></div><div id="specPlayers"></div><div class="spec-ball" id="specBall">⚽</div></div>
+  <div class="spec-controls"><button id="specPause" onclick="spectatorPause()">Pausar ⏸️</button><button class="active" data-spec-speed="1" onclick="spectatorSpeed(1)">1x</button><button data-spec-speed="2" onclick="spectatorSpeed(2)">2x</button><button data-spec-speed="4" onclick="spectatorSpeed(4)">4x</button><button onclick="spectatorToEnd()">Ir al final ⏭️</button></div>
+  <div class="spec-progress"><i id="specProgress"></i></div><div class="spec-panels"><section class="spec-panel"><h3>Relato 🎙️</h3><div class="spec-events" id="specEvents"></div></section><section class="spec-panel"><h3>Estadísticas 📊</h3><div id="specStats">Posesión 50% - 50%</div></section></div><p style="color:#a99aba;font-size:11px">Partido simulado. No modifica a tu plantilla; su resultado se usará al avanzar la jornada.</p></div>`);
+  spectatorDrawPlayers();spectatorRender();spectatorStartTimer();
+}
+function spectatorDrawPlayers(){
+  const positions=[[8,50],[23,18],[23,40],[23,62],[23,84],[42,30],[42,55],[42,80],[62,20],[64,52],[65,79]];
+  const el=document.querySelector('#specPlayers');if(!el)return;
+  el.innerHTML=[0,1].map(side=>positions.map(([x,y],i)=>{
+    const px=side===0?x:100-x;
+    return `<div class="spec-dot ${side===0?'home':'away'}" id="specP${side}_${i}" style="left:${px}%;top:${y}%">${i+1}</div>`
+  }).join('')).join('');
+}
+function spectatorRender(){
+  const m=spectatorSession;if(!m)return;
+  const s=document.querySelector('#specScore');if(!s)return;
+  s.textContent=m.score.join(' - ');
+  document.querySelector('#specMinute').textContent=`${m.minute}'`;
+  document.querySelector('#specProgress').style.width=(m.minute/90*100)+'%';
+  document.querySelector('#specEvents').innerHTML=m.events.slice(-14).reverse().map(x=>`<div>${x}</div>`).join('');
+  const pos=Math.round(50+(teamStrength(m.a)-teamStrength(m.b))*.6);
+  document.querySelector('#specStats').innerHTML=`Posesión: ${pos}% - ${100-pos}%<p>Goles: ${m.score[0]} - ${m.score[1]}</p><p>Minuto ${m.minute} / 90</p>`;
+  const ball=document.querySelector('#specBall');
+  if(ball){ball.style.left=(20+Math.random()*60)+'%';ball.style.top=(18+Math.random()*64)+'%'}
+  for(let side=0;side<2;side++)for(let i=1;i<11;i++){
+    const p=document.getElementById(`specP${side}_${i}`);if(!p)continue;
+    const base=side===0?22+(i%3)*19:78-(i%3)*19;
+    p.style.left=Math.max(10,Math.min(90,base+(Math.random()-.5)*10))+'%';
+    p.style.top=Math.max(9,Math.min(91,15+(i*17)%72+(Math.random()-.5)*8))+'%';
+  }
+}
+function spectatorTick(){
+  const m=spectatorSession;if(!m||m.finished||m.paused)return;
+  m.minute++;
+  for(const g of m.goals.filter(g=>g.minute===m.minute)){
+    m.score[g.side]++;
+    m.events.push(`${m.minute}' · ¡Gol de ${teamById(g.side?m.b:m.a).name}! ⚽`);
+  }
+  if(m.minute%12===0)m.events.push(`${m.minute}' · Ataque peligroso y presión en el área 🔥`);
+  if(m.minute===45)m.events.push("45' · Descanso ⏸️");
+  spectatorRender();
+  if(m.minute>=90)spectatorFinish();
+}
+function spectatorStartTimer(){
+  const m=spectatorSession;if(!m)return;
+  clearInterval(m.timer);
+  m.timer=setInterval(spectatorTick,Math.round(({1:120000,2:90000,4:60000}[m.speed]||120000)/90));
+}
+function spectatorSpeed(speed){
+  if(!spectatorSession||spectatorSession.finished)return;
+  spectatorSession.speed=speed;
+  document.querySelectorAll('[data-spec-speed]').forEach(b=>b.classList.toggle('active',Number(b.dataset.specSpeed)===speed));
+  spectatorStartTimer();
+}
+function spectatorPause(){
+  if(!spectatorSession||spectatorSession.finished)return;
+  spectatorSession.paused=!spectatorSession.paused;
+  const b=document.getElementById('specPause');if(b)b.textContent=spectatorSession.paused?'Reanudar ▶️':'Pausar ⏸️';
+}
+function spectatorToEnd(){
+  const m=spectatorSession;if(!m||m.finished)return;
+  while(m.minute<90)spectatorTickForce();
+  spectatorFinish();
+}
+function spectatorTickForce(){
+  const m=spectatorSession;if(!m||m.finished)return;
+  const old=m.paused;m.paused=false;spectatorTick();m.paused=old;
+}
+function spectatorFinish(){
+  const m=spectatorSession;if(!m||m.finished)return;
+  m.finished=true;clearInterval(m.timer);m.timer=null;
+  m.events.push(`90' · Final del partido: ${teamById(m.a).name} ${m.score[0]} - ${m.score[1]} ${teamById(m.b).name} 🏁`);
+  if(!state.spectatorResults)state.spectatorResults={};
+  state.spectatorResults[m.key]={score:[...m.score],events:[...m.events]};
+  save();spectatorRender();
+  const btn=document.getElementById('specPause');if(btn)btn.disabled=true;
+}
+
 </script>
 <!-- V47 FINAL CONSOLIDATED: calendar compact + tactics editor + positions + player modal + club/market/tournaments/manager -->
 </body>
