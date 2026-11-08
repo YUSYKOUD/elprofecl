@@ -1463,6 +1463,45 @@ button,select,input{font-family:inherit}button{transition:background .16s,border
 @media(max-width:760px){#page{padding-bottom:40px}.tabs{overflow-x:auto!important}.dashboard-shell{gap:12px!important}.dash-panel,.club-panel,.manager-panel,.tac-card{border-radius:18px!important;padding:14px!important}.dash-match{grid-template-columns:minmax(0,1fr) 64px minmax(0,1fr)!important;gap:6px!important}.kpi-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.continue{max-width:100%!important;margin:16px auto!important}.match-controls{gap:5px!important}.match-controls .btn,.match-controls .speed{padding:9px!important;font-size:10px!important}.hero-copy h1{font-size:clamp(48px,14vw,75px)!important}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
 
+
+/* V85 — correcciones verificables: forma G/E/P, botón en flujo y finanzas legibles */
+#clubHero .form-strip-v63{display:inline-flex!important;gap:5px!important;align-items:center!important;justify-content:flex-start!important;min-width:0!important}
+#clubHero .form-strip-v63 .form-chip{display:grid!important;place-items:center!important;width:21px!important;height:22px!important;flex:0 0 21px!important;border-radius:6px!important;font-size:10px!important;font-weight:900!important}
+#game #continueBtn.continue{
+  position:static!important;inset:auto!important;top:auto!important;left:auto!important;
+  right:auto!important;bottom:auto!important;transform:none!important;
+  display:flex!important;float:none!important;z-index:auto!important;
+  margin:20px max(16px,calc((100% - 1240px)/2)) 28px auto!important;
+  width:min(340px,calc(100% - 32px))!important;max-width:100%!important;
+  min-width:0!important;
+}
+#game #continueBtn.continue:hover{transform:translateY(-2px)!important}
+#game main{padding-bottom:8px!important}
+.finance-card-v2{container-type:inline-size;overflow:visible!important}
+.finance-card-v2 .finance-grid-v2{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:10px!important;align-items:stretch!important}
+.finance-card-v2 .finance-stat{box-sizing:border-box!important;min-width:0!important;overflow:visible!important;padding:13px 12px!important;min-height:92px!important}
+.finance-card-v2 .finance-stat span{white-space:normal!important;overflow-wrap:normal!important;letter-spacing:.04em!important}
+.finance-card-v2 .finance-stat b{font-size:clamp(14px,1.6vw,21px)!important;white-space:normal!important;overflow:visible!important;text-overflow:clip!important;overflow-wrap:anywhere!important;line-height:1.2!important;letter-spacing:-.035em!important}
+@container (max-width:540px){
+  .finance-card-v2 .finance-grid-v2{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .finance-card-v2 .finance-stat:nth-child(3){grid-column:1/-1!important}
+  .finance-card-v2 .finance-stat b{font-size:clamp(18px,4.4cqw,23px)!important;overflow-wrap:normal!important}
+}
+@container (max-width:285px){
+  .finance-card-v2 .finance-grid-v2{grid-template-columns:1fr!important}
+  .finance-card-v2 .finance-stat:nth-child(3){grid-column:auto!important}
+}
+@media(max-width:760px){
+  #game #continueBtn.continue{width:calc(100% - 32px)!important;margin:14px 16px 24px auto!important;bottom:auto!important;right:auto!important}
+  #game main{padding-bottom:6px!important}
+}
+
+
+/* V86: Continuar junto a la navegación, dentro del flujo natural (nunca flotante) */
+#game .career-continue-row{width:100%;display:flex;justify-content:flex-end;align-items:center;margin:10px 0 16px;padding:0;clear:both;position:relative;z-index:1}
+#game .career-continue-row #continueBtn.continue{position:static!important;float:none!important;display:flex!important;inset:auto!important;transform:none!important;margin:0!important;width:min(330px,100%)!important;min-width:0!important;max-width:100%!important;box-sizing:border-box!important;z-index:auto!important}
+#game .career-continue-row #continueBtn.continue:hover{transform:translateY(-1px)!important}
+@media(max-width:760px){#game .career-continue-row{margin:10px 0 14px!important}#game .career-continue-row #continueBtn.continue{width:100%!important;margin:0!important}}
 </style>
 </head>
 <body>
@@ -1609,9 +1648,9 @@ button,select,input{font-family:inherit}button{transition:background .16s,border
 <nav class="tabs" id="tabs">
 <button class="tab active" data-page="home">⌂ Inicio</button><button class="tab" data-page="squad">♙ Plantel</button><button class="tab" data-page="tactics">▦ Táctica</button><button class="tab" data-page="calendar">▣ Calendario</button><button class="tab" data-page="tournaments">♜ Torneos</button><button class="tab" data-page="market">⇄ Mercado</button><button class="tab" data-page="club">⬡ Club</button><button class="tab" data-page="manager">♙ DT</button>
 </nav>
+<div class="career-continue-row"><button class="continue" id="continueBtn" onclick="continueCareer()"><span><b>Continuar ⚽</b><small id="continueText">Ir al próximo partido</small></span><i>›</i></button></div>
 <section id="page"></section>
 </main>
-<button class="continue" id="continueBtn" onclick="continueCareer()"><span><b>Continuar ⚽</b><small id="continueText">Ir al próximo partido</small></span><i>›</i></button>
 </div>
 <div class="match-screen" id="match">
 <div class="match-top"><button class="back" onclick="exitMatch()">‹ VOLVER</button><div class="logo">EL <em>Profe</em></div></div>
@@ -1934,7 +1973,7 @@ function openGame(){$('#landing')?.classList.add('hidden');$('#setup').classList
 function myTeam(){return teamById(state.userTeam)}
 function myLeague(){return state.leagueOf[state.userTeam]}
 function teamStrength(id){const r=state.rosters[id]||[];const xi=r.filter(p=>p.onXI&&!p.injured);const list=(xi.length>=9?xi:r.slice().sort((a,b)=>b.rating-a.rating).slice(0,11));return list.length?list.reduce((a,p)=>a+p.rating*(.82+p.fitness/550)*(0.86+p.morale/700),0)/list.length:62}
-function renderHero(){const t=myTeam(),tbl=sortedTable(myLeague()),rank=tbl.findIndex(x=>x.id===t.id)+1,forms=state.leagues[myLeague()].table[t.id].form;$('#clubHero').innerHTML=`<div class="club-info">${badge(t)}<div class="club-title"><h1>${t.name}</h1><p>${state.manager.name} ${state.manager.last} · ${state.season}</p><div class="club-meta"><span class="chip"><b>${rank||'-'}°</b> en la tabla</span><span class="form-dots">${[...Array(5)].map((_,i)=>{let f=forms[Math.max(0,forms.length-5)+i];return `<i class="fd ${f==='w'?'fw':f==='l'?'fl':'fdw'}" title="${f==='w'?'Ganado':f==='d'?'Empatado':f==='l'?'Perdido':'Sin disputar'}">${f==='w'?'G':f==='d'?'E':f==='l'?'P':'·'}</i>`}).join('')}</span><span class="chip money">💰 ${euro(state.balance)}</span></div></div></div><div class="club-actions"><button class="iconbtn" onclick="showHelp()">?</button></div>`}
+function renderHero(){const t=myTeam(),tbl=sortedTable(myLeague()),rank=tbl.findIndex(x=>x.id===t.id)+1,forms=state.leagues[myLeague()].table[t.id].form;$('#clubHero').innerHTML=`<div class="club-info">${badge(t)}<div class="club-title"><h1>${t.name}</h1><p>${state.manager.name} ${state.manager.last} · ${state.season}</p><div class="club-meta"><span class="chip"><b>${rank||'-'}°</b> en la tabla</span>${v26FormStrip(t.id)}<span class="chip money">💰 ${euro(state.balance)}</span></div></div></div><div class="club-actions"><button class="iconbtn" onclick="showHelp()">?</button></div>`}
 $('#tabs').onclick=e=>{const b=e.target.closest('[data-page]');if(b)showPage(b.dataset.page)}
 function showPage(p){currentPage=p;$$('.tab').forEach(b=>b.classList.toggle('active',b.dataset.page===p));({home:renderHome,squad:renderSquad,tactics:renderTactics,calendar:renderCalendar,tournaments:renderTournaments,market:renderMarket,club:renderClub,manager:renderManager}[p]||renderHome)();window.scrollTo(0,0)}
 function fixture(){return state.leagues[myLeague()].schedule[state.round]?.find(f=>f.includes(state.userTeam))}
@@ -2470,6 +2509,7 @@ function exitMatch(){
   if(matchEngine?.timer){clearInterval(matchEngine.timer);matchEngine.timer=null;}
   $('#match')?.classList.remove('active');
   $('#game')?.classList.remove('hidden');
+  if(typeof renderHero==='function' && state) renderHero();
   if(typeof showPage==='function') showPage('home');
 }
 
@@ -3067,6 +3107,53 @@ function spectatorFinish(){
   save();spectatorRender();
   const btn=document.getElementById('specPause');if(btn)btn.disabled=true;
 }
+
+
+/* V84 — Misma cancha para TODAS las fechas y finalización robusta. */
+function epV84RestorePitch(){
+  const arena=document.querySelector('#match #mtvArena');
+  if(arena){
+    const placeholder=document.createElement('div');
+    placeholder.className='mini-pitch';
+    placeholder.innerHTML='<i class="ball-dot" id="ballDot"></i>';
+    arena.replaceWith(placeholder);
+  }
+  if(!document.querySelector('#match .mini-pitch')){
+    const controls=document.querySelector('#match .match-controls');
+    if(controls){const placeholder=document.createElement('div');placeholder.className='mini-pitch';placeholder.innerHTML='<i class="ball-dot" id="ballDot"></i>';controls.before(placeholder)}
+  }
+}
+const epV84Init=initMatch;
+initMatch=function(f){
+  if(matchEngine?.timer){clearInterval(matchEngine.timer);matchEngine.timer=null}
+  epV84RestorePitch();
+  epV84Init(f);
+  if(!document.querySelector('#match #mtvArena'))mtvBuild();
+};
+function epV84EndMatch(){
+ const m=matchEngine;
+ if(!m||m.finished)return;
+ if(m.timer){clearInterval(m.timer);m.timer=null}
+ m.activeDecision=null;m.paused=false;
+ // Close pending tactical/decision dialogs without re-opening their paused state.
+ const modal=document.getElementById('modal');
+ if(modal){modal.classList.remove('show');modal.className='modal'}
+ if(typeof epDecisionModal!=='undefined'){const extra=document.getElementById('epDecisionModal');if(extra)extra.remove()}
+ let guard=0;
+ try{
+  while(m.minute<90&&guard++<92){m.minute++;simulateMinute()}
+  renderMatchUI();
+  if(typeof epUpdateTimer==='function')epUpdateTimer();
+  finishMatch();
+ }catch(err){console.error('Error al finalizar partido:',err);toast('No se pudo finalizar: '+err.message);}
+}
+skipToFinal=epV84EndMatch;
+function epV84WireEndButton(){
+ const buttons=document.querySelectorAll('#match .match-controls button');
+ buttons.forEach(btn=>{if(/ir al final|simular hasta el final/i.test(btn.textContent||'')){btn.onclick=epV84EndMatch;btn.disabled=false;btn.title='Simular el partido hasta el minuto 90'}});
+}
+const epV84Launch=launchMatch;
+launchMatch=function(){epV84Launch();epV84WireEndButton()};
 
 </script>
 <!-- V47 FINAL CONSOLIDATED: calendar compact + tactics editor + positions + player modal + club/market/tournaments/manager -->
